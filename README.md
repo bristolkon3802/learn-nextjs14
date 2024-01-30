@@ -17,6 +17,30 @@
 - route 그룹화 (home), (movies) 일부 레이아웃을 선택하거나 선택 해제하여 복잡한 일을 할 수 있음.
 - 동적(dynamic)페이지 (movies)/movies/[id]/page.tsx
 
+### data fetch - nomad-movies.nomadcoders.workers.dev
+
+- /: 홈
+- /movies: 인기 영화 나열
+- /movies/:id: 영화를 구입하세요.
+- /movies/:id/credits: 다음으로 영화 크레딧을 받으세요
+- /movies/:id/videos: 다음으로 영화 동영상을 받아보세요.
+- /movies/:id/providers: 다음으로 영화 공급자를 구하세요.
+- /movies/:id/similar: 다음에서 영화와 비슷한 영화를 찾아보세요.
+
+  ```
+  const URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
+  async function getMovies() {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    const response = await fetch(URL);
+    const json = await response.json();
+  return json;
+  }
+  export default async function HomePage() {
+    const movies = await getMovies();
+    return <div>{JSON.stringify(movies)}</div>;
+  }
+  ```
+
 ### 오류
 
 - Extra attributes from the server: cz-shortcut-listen

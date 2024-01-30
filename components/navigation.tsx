@@ -16,10 +16,10 @@ export default function Navigation() {
           <Link href={"/about-us"}>About</Link>
           {path === "/about-us" ? "🤩" : ""}
         </li>
-        <li>
+        {/* <li>
           <Link href={"/movies/id"}>Movie</Link>
           {path === "/movies" ? "🤩" : ""}
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
